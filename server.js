@@ -27,7 +27,8 @@ io.on('connection', function(socket){
 });
 
 function Disconnect() {
-    if(clients > 0) clients--;
+    if(clients > 0)
+        clients--;
 }
 
 function SendOffer(offer) {

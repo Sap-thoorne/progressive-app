@@ -20,7 +20,7 @@ if(navigator.mediaDevices.getUserMedia){
                 stream: stream,
                 trickle: false
             });
-            peer.on('stream', function(stream){CreateVideo(strem);});
+            peer.on('stream', function(stream){CreateVideo(stream);});
             peer.on('close', function(){
                document.getElementById('peerVideo').remove();
                peer.destroy();
