@@ -27,6 +27,10 @@ if(navigator.mediaDevices.getUserMedia){
             });
         }
 
+        function RemoveVideo(){
+            document.getElementById('peerVideo').remove();
+        }
+
         //To send an offer, initiating peer takes up the role
         function MakePeer(){
             client.gotAnswer = false;
@@ -68,6 +72,7 @@ if(navigator.mediaDevices.getUserMedia){
         socket.on('BackAnswer', SignalAnswer);
         socket.on('SessionActive', SessionActive);
         socket.on('CreatePeer', MakePeer);
+        socket.on('RemoveVideo', RemoveVideo);
 
     }).catch(err => document.write(err));
 }

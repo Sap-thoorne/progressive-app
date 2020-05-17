@@ -23,6 +23,7 @@ io.on('connection', function(socket){
    socket.on('Offer', SendOffer);
    socket.on('Answer', SendAnswer);
    socket.on('Offer', Disconnect);
+
 });
 
 function Disconnect() {
