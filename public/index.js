@@ -7,10 +7,10 @@ let client = {};
 
 // We try to obtain the video stream
 
-navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+navigator.mediaDevices.getUserMedia = (navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia || navigator.mediaDevices.mozGetUserMedia || navigator.mediaDevices.msGetUserMedia);
 
-if(navigator.getUserMedia){
-    navigator.getUserMedia({video: true, audio: true}).then(stream => {
+if(navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({video: true, audio: true}).then(stream => {
         socket.emit('NewClient');
         video.srcObject = stream;
         video.play();
@@ -76,7 +76,7 @@ if(navigator.getUserMedia){
             video.setAttribute('id', 'peerVideo');
             video.srcObject = stream;
             video.setAttribute('class', 'embed-responsive-item');
-            console.log("Came Here");
+            console.log("Came Here" + video);
             // video.class = 'embed-responsive-item';
             document.getElementById('peerDiv').appendChild(video);
             video.play();
