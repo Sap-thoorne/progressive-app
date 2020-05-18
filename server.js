@@ -22,13 +22,16 @@ io.on('connection', function(socket){
    });
    socket.on('Offer', SendOffer);
    socket.on('Answer', SendAnswer);
-   socket.on('Offer', Disconnect);
+   socket.on('disconnect', Disconnect);
 
 });
 
 function Disconnect() {
-    if(clients > 0)
+    if(clients > 0){
+        if(clients <= 2)
+            this.broadcast.emit("Disconnect");
         clients--;
+    }
 }
 
 function SendOffer(offer) {
