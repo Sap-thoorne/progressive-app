@@ -5,10 +5,10 @@ let client = {}
 
 // We try to obtain the video stream
 
-navigator.mediaDevices.getUserMedia = (navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia || navigator.mediaDevices.mozGetUserMedia || navigator.mediaDevices.msGetUserMedia);
+navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
-if(navigator.mediaDevices.getUserMedia){
-    navigator.mediaDevices.getUserMedia({video: true, audio: true}).then(stream => {
+if(navigator.getUserMedia){
+    navigator.getUserMedia({video: true, audio: true}).then(stream => {
         socket.emit('NewClient');
         video.srcObject = stream;
         video.play();
